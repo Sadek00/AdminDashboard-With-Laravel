@@ -7,9 +7,9 @@ use App\Models\Category;
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1 style="color: #008d4c; font-weight: bolder;">
-        Category
-        <small style="color: #00a65a;">preview of all category</small>
+      <h1 style="color: #d73925 ; font-weight: bolder;">
+        Trashed
+        <small style="color: #dd4b39;">preview of all deleted data</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -23,7 +23,6 @@ use App\Models\Category;
       <div class="row">
         <div class="col-md-12">
           <div class="box">
-            <!-- /.box-header -->
             <div class="box-body">
               <table class="table table-bordered">
                 <tr>
@@ -41,8 +40,8 @@ use App\Models\Category;
                   <td>{{ $cat->slug }}</td>
                   <td>{{ $cat->created_at->Format('d-M-Y h:i:s a') }} ({{ $cat->created_at->diffForHumans() }})</td>
                   <td class="text-center">
-                    <a class="btn btn-success" href="{{ url('edit-category') }}/{{ $cat->id }}">Edit</a>
-                    <a class="btn btn-danger" href="{{ url('delete-category') }}/{{ $cat->id }}">Delete</a>
+                    <a class="btn btn-success" href="{{ url('edit-category') }}/{{ $cat->id }}">Restore</a>
+                    <a class="btn btn-danger" href="{{ url('delete-category') }}/{{ $cat->id }}">Permanent Delete</a>
                   </td>
                 </tr>
                 @endforeach

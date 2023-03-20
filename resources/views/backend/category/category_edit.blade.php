@@ -3,9 +3,9 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1 style="color: #367fa9; font-weight: bolder;"> Add 
-        Category
-        <small style="color: #3c8dbc;">Enter category</small>
+      <h1>
+        General Form Elements
+        <small>Preview</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -21,20 +21,24 @@
         <div class="col-md-12">
           <!-- general form elements -->
           <div class="box box-primary">
+            <div class="box-header with-border text-center">
+              <h3 class="box-title">Edit Category</h3>
+            </div>
             <!-- /.box-header -->
             <!-- form start --> 
-            <form role="form" method="post" action="{{url('post-category')}}">
+            <form role="form" method="post" action="{{url('update-category')}}">
               @csrf
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Category Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="category_name" placeholder="Enter Category Name">
+                  <input type="text" class="form-control" id="exampleInputEmail1" name="category_name" value="{{  $category ->category_name }}">
+                  <input type="hidden" class="form-control" id="exampleInputEmail1" name="id" value="{{  $category ->id }}">
                 </div>
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Update</button>
               </div>
             </form>
           </div>

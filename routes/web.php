@@ -31,8 +31,14 @@ Route::get('/', function () {
 // });
 
 Route::get('dashboard', [DashboardController::class,'dashboard'])->name('dashboard');
+//Category Route
 Route::get('add-category', [CategoryController::class,'addcategory'])->name('addcategory');
 Route::post('post-category', [CategoryController::class,'postcategory'])->name('postcategory');
 Route::get('view-category', [CategoryController::class,'viewcategory'])->name('viewcategory');
+Route::get('delete-category/{id}', [CategoryController::class,'deletecategory'])->name('deletecategory');
+Route::get('edit-category/{id}', [CategoryController::class,'editcategory'])->name('editcategory');
+Route::post('update-category', [CategoryController::class,'updatecategory'])->name('updatecategory');
+Route::get('trashed-category', [CategoryController::class,'trashedcategory'])->name('trashedcategory');
+
 
 require __DIR__.'/auth.php';

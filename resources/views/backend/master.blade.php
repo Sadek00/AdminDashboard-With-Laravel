@@ -9,9 +9,10 @@
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="{{asset('assets/plugins/toastr/toastr.min.css')}}">
   <!-- Theme style -->"
   <link rel="stylesheet" href="{{asset('assets/dist/css/AdminLTE.min.css')}}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -228,7 +229,7 @@
           <ul class="treeview-menu">
             <li><a href="{{url('add-category')}}"><i class="fa fa-circle-o"></i> Add Category</a></li>
             <li><a href="{{url('view-category')}}"><i class="fa fa-circle-o"></i> View Category</a></li>
-            <li><a href="{{url('add-category')}}"><i class="fa fa-circle-o"></i> Trashed</a></li>
+            <li><a href="{{url('trashed-category')}}"><i class="fa fa-circle-o"></i> Trashed</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -604,6 +605,7 @@
 <script src="{{asset('assets/plugins/jQuery/jquery-2.2.3.min.js')}}"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/plugins/toastr/toastr.min.js')}}"></script>
 <!-- SlimScroll -->
 <script src="{{asset('assets/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
 <!-- FastClick -->
@@ -612,5 +614,6 @@
 <script src="{{asset('assets/dist/js/app.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('assets/dist/js/demo.js')}}"></script>
+@yield('toaster')
 </body>
 </html>
