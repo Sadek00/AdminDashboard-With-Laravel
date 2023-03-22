@@ -39,6 +39,8 @@ Route::get('delete-category/{id}', [CategoryController::class,'deletecategory'])
 Route::get('edit-category/{id}', [CategoryController::class,'editcategory'])->name('editcategory');
 Route::post('update-category', [CategoryController::class,'updatecategory'])->name('updatecategory');
 Route::get('trashed-category', [CategoryController::class,'trashedcategory'])->name('trashedcategory');
+Route::get('restore-category/{id}', [CategoryController::class,'RestoreCategory'])->name('RestoreCategory');
+Route::get('permanent-delete-category/{id}', [CategoryController::class,'PermanentdeleteCategory'])->name('PermanentdeleteCategory');
 
 
 require __DIR__.'/auth.php';

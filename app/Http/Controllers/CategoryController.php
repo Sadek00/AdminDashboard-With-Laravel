@@ -18,6 +18,12 @@ class CategoryController extends Controller
         // return $request->all(); 
         // return "OK";
 
+        $request->validate([
+            'category_name' => 'required|unique:categories|min:3|max:255',
+        ],[
+            'category_name.required'=> 'Okii Bro! kichu ekta dao',
+        ]);
+
         $category = new Category;
         $category->category_name = $request->category_name;
         $category->slug = str::slug($request->category_name);
@@ -55,6 +61,16 @@ class CategoryController extends Controller
     {
         $category = Category::onlyTrashed()->OrderBy('category_name','asc')->paginate(5);
         return view('backend.category.trashed',compact('category'));
+    }
+    public function RestoreCategory($value)
+    {
+        Category::onlyTrashed()->findOrFail($value)->restore();
+        return back()->with('success','Successfully Restore The Category Data');
+    }
+    public function PermanentdeleteCategory($value)
+    {
+        Category::onlyTrashed()->findOrFail($value)->forceDelete();
+        return back()->with('success','Permanently Deleleted The Data');
     }
 
 }

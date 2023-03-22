@@ -32,19 +32,21 @@ use App\Models\Category;
                   <th>Created at</th>
                   <th class="text-center">Action</th>
                 </tr>
-                @foreach($category as $cat)
+                @forelse($category as $key=>$cat)
                 <tr>
                   {{-- <td>{{ $cat->id }}</td> --}}
-                  <td>{{ $loop->index + 1 }}</td>
+                  <td>{{ $category->firstItem() + $key }}</td>
                   <td>{{ $cat->category_name }}</td>
                   <td>{{ $cat->slug }}</td>
                   <td>{{ $cat->created_at->Format('d-M-Y h:i:s a') }} ({{ $cat->created_at->diffForHumans() }})</td>
                   <td class="text-center">
-                    <a class="btn btn-success" href="{{ url('edit-category') }}/{{ $cat->id }}">Restore</a>
-                    <a class="btn btn-danger" href="{{ url('delete-category') }}/{{ $cat->id }}">Permanent Delete</a>
+                    <a class="btn btn-success" href="{{ url('restore-category') }}/{{ $cat->id }}">Restore</a>
+                    <a class="btn btn-danger"  href="{{ url('permanent-delete-category') }}/{{ $cat->id }}">Permanent Delete</a>
                   </td>
                 </tr>
-                @endforeach
+                @empty
+                <td colspan="5" class="text-center">No Data Available</td>
+                @endforelse
               </table>
             </div>
             <!-- /.box-body -->
