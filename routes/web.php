@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubcategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,9 @@ Route::get('/', function () {
 // });
 
 Route::get('dashboard', [DashboardController::class,'dashboard'])->name('dashboard');
-//Category Route
+/**
+ * All Category Route Here.
+ */
 Route::get('add-category', [CategoryController::class,'addcategory'])->name('addcategory');
 Route::post('post-category', [CategoryController::class,'postcategory'])->name('postcategory');
 Route::get('view-category', [CategoryController::class,'viewcategory'])->name('viewcategory');
@@ -41,6 +44,13 @@ Route::post('update-category', [CategoryController::class,'updatecategory'])->na
 Route::get('trashed-category', [CategoryController::class,'trashedcategory'])->name('trashedcategory');
 Route::get('restore-category/{id}', [CategoryController::class,'RestoreCategory'])->name('RestoreCategory');
 Route::get('permanent-delete-category/{id}', [CategoryController::class,'PermanentdeleteCategory'])->name('PermanentdeleteCategory');
+/**
+ * All Subcategory route here.
+ */
+Route::get('view-subcategory', [SubcategoryController::class,'ViewCategory'])->name('ViewCategory');
+Route::get('add-subcategory', [SubcategoryController::class,'AddSubcategory'])->name('AddSubcategory');
+Route::post('post-subcategory', [SubcategoryController::class,'PostSubcategory'])->name('PostSubcategory');
+
 
 
 require __DIR__.'/auth.php';

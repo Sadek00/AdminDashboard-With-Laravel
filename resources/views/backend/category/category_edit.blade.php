@@ -28,11 +28,22 @@
             <!-- form start --> 
             <form role="form" method="post" action="{{url('update-category')}}">
               @csrf
-              <div class="box-body">
+               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Category Name</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name="category_name" value="{{  $category ->category_name }}">
+                  <label for="category_name">Category Name</label>
+                  <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter Category Name" value="{{ $category->category_name }}">
+                  <label for="slug">Slug</label>
+                  <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter slug" value="{{ $category->slug }}">
                   <input type="hidden" class="form-control" id="exampleInputEmail1" name="id" value="{{  $category ->id }}">
+                  @if ($errors->any())
+                      <div class="alert alert-danger">
+                          <ul>
+                              @foreach ($errors->all() as $error)
+                                  <li>{{ $error }}</li>
+                              @endforeach
+                          </ul>
+                      </div>
+                  @endif
                 </div>
               </div>
               <!-- /.box-body -->
@@ -57,3 +68,10 @@
   </div>
   <!-- /.content-wrapper -->
 @endsection
+@section('toaster')
+ <script type="text/javascript">
+  $('#category_name').keyup(function() {
+    $('#slug').val($(this).val().toLowerCase().split(',').join('').replace(/\s/g,"-"));
+  });
+  </script>
+  @endsection

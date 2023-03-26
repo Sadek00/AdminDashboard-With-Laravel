@@ -29,15 +29,17 @@ use App\Models\Category;
                 <tr>
                   <th style="width: 10px">Sl No</th>
                   <th>Name</th>
+                  <th>Category</th>
                   <th>Slug</th>
                   <th>Created at</th>
                   <th class="text-center">Action</th>
                 </tr>
-                @forelse($category as $key => $cat)
+                @forelse($subcategory as $key => $cat)
                 <tr>
                   {{-- <td>{{ $cat->id }}</td> --}}
-                  <td>{{ $category->firstItem() + $key }}</td>
+                  <td>{{ $subcategory->firstItem() + $key }}</td>
                   <td>{{ $cat->category_name }}</td>
+                  <td>{{ $cat->category_id }}</td>
                   <td>{{ $cat->slug }}</td>
                   <td>{{ $cat->created_at->Format('d-M-Y h:i:s a') }} ({{ $cat->created_at->diffForHumans() }})</td>
                   <td class="text-center">
@@ -51,7 +53,7 @@ use App\Models\Category;
               </table>
             </div>
             <!-- /.box-body -->
-            {{ $category->links()}}
+            {{ $subcategory->links()}}
           </div>
           <!-- /.box -->
         </div>

@@ -20,6 +20,7 @@ class CategoryController extends Controller
 
         $request->validate([
             'category_name' => 'required|unique:categories|min:3|max:255',
+            'slug' => 'required|unique:categories',
         ],[
             'category_name.required'=> 'Okii Bro! kichu ekta dao',
         ]);
@@ -50,7 +51,15 @@ class CategoryController extends Controller
     }
     public function updatecategory(Request $request)
     {
-        $category = Category::findOrFail($request->id);
+        //Validation
+        $request->validate([
+            'category_name' => 'required|min:3|max:255',
+            'slug' => 'required',
+        ],[
+            'category_name.required'=> 'Okii Bro! kichu ekta dao',
+        ]);
+
+        $category = Category::findOrFail($request->id); 
         $category->category_name = $request->category_name;
         $category->slug = str::slug($request->category_name);
         $category->save();

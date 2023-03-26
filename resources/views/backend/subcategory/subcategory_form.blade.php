@@ -4,8 +4,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1 style="color: #367fa9; font-weight: bolder;"> Add 
-        Category
-        <small style="color: #3c8dbc;">Enter category</small>
+        Sub Category
+        <small style="color: #3c8dbc;">Enter Sub Category</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -23,14 +23,22 @@
           <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start --> 
-            <form role="form" method="post" action="{{url('post-category')}}">
+            <form role="form" method="post" action="{{url('post-subcategory')}}">
               @csrf
               <div class="box-body">
                 <div class="form-group">
                   <label for="category_name">Category Name</label>
                   <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter Category Name" value="{{ old('category_name') }}">
                   <label for="slug">Slug</label>
-                  <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter slug" value="{{ old('slug') }}">
+                  <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter slug" value="{{ old('slug') }}"> 
+                  <label for="category_id">Category</label>
+                    <select name="category_id" id="category_id" class="form-control">
+                      <option>Select one</option>
+                      @foreach($categories as $cat)
+                      <option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
+                      @endforeach
+                    </select>                 
+
                   @if ($errors->any())
                       <div class="alert alert-danger">
                           <ul>
