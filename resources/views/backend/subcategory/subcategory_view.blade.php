@@ -1,5 +1,5 @@
 <?php
-use App\Models\Category;
+use App\Models\Subcategory;
 ?>
 @extends('backend.master')
 @section('content');
@@ -8,8 +8,8 @@ use App\Models\Category;
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1 style="color: #008d4c; font-weight: bolder;">
-        Category
-        <small style="color: #00a65a;">preview of all category</small>
+        Sub Category
+        <small style="color: #00a65a;">preview of all sub category</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -25,8 +25,11 @@ use App\Models\Category;
           <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
+              <form method="post" action="{{ url('all-delete-subcategory') }}">
+                @csrf
               <table class="table table-bordered">
                 <tr>
+                  <th><input type="checkbox" id="checkAll" name=""> All</th>
                   <th style="width: 10px">Sl No</th>
                   <th>Name</th>
                   <th>Category</th>
@@ -36,10 +39,11 @@ use App\Models\Category;
                 </tr>
                 @forelse($subcategory as $key => $cat)
                 <tr>
+                  <td><input type="checkbox" name="delete[]" value="{{ $cat->id }}"></td>
                   {{-- <td>{{ $cat->id }}</td> --}}
                   <td>{{ $subcategory->firstItem() + $key }}</td>
-                  <td>{{ $cat->category_name }}</td>
-                  <td>{{ $cat->category_id }}</td>
+                  <td>{{ $cat->subcategory_name }}</td>
+                  <td>{{ $cat->category->category_name}}</td>
                   <td>{{ $cat->slug }}</td>
                   <td>{{ $cat->created_at->Format('d-M-Y h:i:s a') }} ({{ $cat->created_at->diffForHumans() }})</td>
                   <td class="text-center">
@@ -51,6 +55,10 @@ use App\Models\Category;
                 <td colspan="10" class="text-center">No Data Available</td>
                 @endforelse
               </table>
+              <div class="text-left">
+              <button type="submit" class="btn btn-danger"> Delete Selected </button>
+              </div>
+              </form>
             </div>
             <!-- /.box-body -->
             {{ $subcategory->links()}}
@@ -88,5 +96,10 @@ use App\Models\Category;
         "hideMethod": "fadeOut"
   }
   @endif
+
+  //Checkbox script for multiple delete
+  $("#checkAll").click(function() {
+    $('input:checkbox').not(this).prop('checked',this.checked); 
+  });
   </script>
   @endsection

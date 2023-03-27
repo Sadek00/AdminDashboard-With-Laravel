@@ -28,7 +28,7 @@
               <div class="box-body">
                 <div class="form-group">
                   <label for="category_name">Category Name</label>
-                  <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter Category Name" value="{{ old('category_name') }}">
+                  <input type="text" class="form-control" id="category_name" name="subcategory_name" placeholder="Enter Category Name" value="{{ old('category_name') }}">
                   <label for="slug">Slug</label>
                   <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter slug" value="{{ old('slug') }}"> 
                   <label for="category_id">Category</label>
