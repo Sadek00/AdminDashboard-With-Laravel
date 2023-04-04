@@ -47,8 +47,8 @@ use App\Models\Subcategory;
                   <td>{{ $cat->slug }}</td>
                   <td>{{ $cat->created_at->Format('d-M-Y h:i:s a') }} ({{ $cat->created_at->diffForHumans() }})</td>
                   <td class="text-center">
-                    <a class="btn btn-success" href="{{ url('edit-category')}}/{{ $cat->id }}">Edit</a>
-                    <a class="btn btn-danger" href="{{ url('delete-category') }}/{{ $cat->id }}">Delete</a>
+                    <a class="btn btn-success" href="{{ url('edit-subcategory')}}/{{ $cat->id }}">Edit</a>
+                    <a class="btn btn-danger" href="{{ url('delete-subcategory') }}/{{ $cat->id }}">Delete</a>
                   </td>
                 </tr>
                 @empty

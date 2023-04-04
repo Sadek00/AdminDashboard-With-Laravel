@@ -3,9 +3,9 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1 style="color: #367fa9; font-weight: bolder;"> Add 
-        Sub Category
-        <small style="color: #3c8dbc;">Enter Sub Category</small>
+      <h1>
+        General Form Elements
+        <small>Preview</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -21,24 +21,27 @@
         <div class="col-md-12">
           <!-- general form elements -->
           <div class="box box-primary">
+            <div class="box-header with-border text-center">
+              <h3 class="box-title">Edit Sub Category</h3>
+            </div>
             <!-- /.box-header -->
             <!-- form start --> 
-            <form role="form" method="post" action="{{url('post-subcategory')}}">
+            <form role="form" method="post" action="{{url('update-subcategory')}}">
               @csrf
-              <div class="box-body">
+               <div class="box-body">
                 <div class="form-group">
-                  <label for="category_name">Category Name</label>
-                  <input type="text" class="form-control" id="category_name" name="subcategory_name" placeholder="Enter Product Name" value="{{ old('category_name') }}">
+                  <label for="subcategory_name">Category Name</label>
+                  <input type="text" class="form-control" id="subcategory_name" name="subcategory_name"  value="{{ $category->subcategory_name }}">
                   <label for="slug">Slug</label>
-                  <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter slug" value="{{ old('slug') }}"> 
+                  <input type="text" class="form-control" id="slug" name="slug" value="{{ $category->slug }}">
                   <label for="category_id">Category</label>
                     <select name="category_id" id="category_id" class="form-control">
-                      <option>Select one</option>
+                      <option value="{{ $category->category->id }}">{{ $category->category->category_name }}</option>
                       @foreach($categories as $cat)
                       <option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
                       @endforeach
-                    </select>                 
-
+                    </select> 
+                  <input type="hidden" class="form-control" id="exampleInputEmail1" name="id" value="{{  $category ->id }}">
                   @if ($errors->any())
                       <div class="alert alert-danger">
                           <ul>
@@ -53,7 +56,7 @@
               <!-- /.box-body -->
 
               <div class="box-footer text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Update</button>
               </div>
             </form>
           </div>
@@ -71,13 +74,11 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
 @endsection
 @section('toaster')
  <script type="text/javascript">
-  $('#category_name').keyup(function() {
+  $('#subcategory_name').keyup(function() {
     $('#slug').val($(this).val().toLowerCase().split(',').join('').replace(/\s/g,"-"));
   });
   </script>
   @endsection
-

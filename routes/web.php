@@ -50,8 +50,14 @@ Route::get('permanent-delete-category/{id}', [CategoryController::class,'Permane
 Route::get('view-subcategory', [SubcategoryController::class,'ViewCategory'])->name('ViewCategory');
 Route::get('add-subcategory', [SubcategoryController::class,'AddSubcategory'])->name('AddSubcategory');
 Route::post('post-subcategory', [SubcategoryController::class,'PostSubcategory'])->name('PostSubcategory');
+Route::get('edit-subcategory/{iq}', [SubcategoryController::class,'EditSubcategory'])->name('EditSubcategory');
+Route::post('update-subcategory', [SubcategoryController::class,'UpdateSubcategory'])->name('UpdateSubcategory');
+Route::get('delete-subcategory/{id}', [SubcategoryController::class,'DeleteSubcategory'])->name('DeleteSubcategory');
 Route::post('all-delete-subcategory', [SubcategoryController::class,'AllDeleteSubcategory'])->name('AllDeleteSubcategory');
 Route::get('trashed-subcategory', [SubcategoryController::class,'TrashedSubcategory'])->name('TrashedSubcategory');
+Route::get('restore-subcategory/{iq}', [SubcategoryController::class,'RestoreSubcategory'])->name('RestoreSubcategory');
+Route::get('permanent-delete-subcategory/{iq}', [SubcategoryController::class,'PermanentDeleteSubcategory'])->name('PermanentDeleteSubcategory');
+
 
 
 

@@ -30,7 +30,7 @@ class CategoryController extends Controller
         $category->slug = str::slug($request->category_name);
         $category->save();
 
-        return redirect('/view-category');
+        return redirect('/view-category')->with('success','Successfully Add Category Data');
     } 
     public function viewcategory()
     {

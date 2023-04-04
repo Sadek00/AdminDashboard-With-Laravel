@@ -47,7 +47,7 @@ use App\Models\Subcategory;
                   </td>
                 </tr>
                 @empty
-                <td colspan="5" class="text-center">No Data Available</td>
+                <td colspan="10" class="text-center">No Data Available</td>
                 @endforelse
               </table>
             </div>
