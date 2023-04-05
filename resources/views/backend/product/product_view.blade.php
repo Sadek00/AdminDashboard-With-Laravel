@@ -1,5 +1,5 @@
 <?php
-use App\Models\Subcategory;
+use App\Models\Product;
 ?>
 @extends('backend.master')
 @section('content');
@@ -8,8 +8,8 @@ use App\Models\Subcategory;
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1 style="color: #008d4c; font-weight: bolder;">
-        Sub Category
-        <small style="color: #00a65a;">preview of all sub category</small>
+        Products
+        <small style="color: #00a65a;">preview of all Products</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ url('dashboard') }}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -25,7 +25,7 @@ use App\Models\Subcategory;
           <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
-              <form method="post" action="{{ url('all-delete-subcategory') }}">
+              <form method="post" action="{{ url('all-delete-product') }}">
                 @csrf
               <table class="table table-bordered">
                 <tr>
@@ -37,15 +37,15 @@ use App\Models\Subcategory;
                   <th>Created at</th>
                   <th class="text-center">Action</th>
                 </tr>
-                @forelse($subcategory as $key => $cat)
+                @forelse($products as $key => $product)
                 <tr>
-                  <td><input type="checkbox" name="delete[]" value="{{ $cat->id }}"></td>
+                  <td><input type="checkbox" name="delete[]" value="{{ $product->id }}"></td>
                   {{-- <td>{{ $cat->id }}</td> --}}
-                  <td>{{ $subcategory->firstItem() + $key }}</td>
-                  <td>{{ $cat->subcategory_name }}</td>
-                  <td>{{ $cat->category->category_name}}</td>
-                  <td>{{ $cat->slug }}</td>
-                  <td>{{ $cat->created_at->Format('d-M-Y h:i:s a') }} ({{ $cat->created_at->diffForHumans() }})</td>
+                  <td>{{ $products->firstItem() + $key }}</td>
+                  <td>{{ $product->subcategory_name }}</td>
+                  <td>{{ $product->category->category_name}}</td>
+                  <td>{{ $product->slug }}</td>
+                  <td>{{ $product->created_at->Format('d-M-Y h:i:s a') }} ({{ $product->created_at->diffForHumans() }})</td>
                   <td class="text-center">
                     <a class="btn btn-success" href="{{ url('edit-subcategory')}}/{{ $cat->id }}">Edit</a>
                     <a class="btn btn-danger" href="{{ url('delete-subcategory') }}/{{ $cat->id }}">Delete</a>
