@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('thumbnail');
             $table->foreignId('category_id');
             $table->foreignId('subcategory_id');
+            $table->text('summary')->default(value)->nullable();
+            $table->text('description')->default(value)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -61,7 +61,7 @@ use App\Models\Product;
               </form>
             </div>
             <!-- /.box-body -->
-            {{ $subcategory->links()}}
+            {{ $products->links()}}
           </div>
           <!-- /.box -->
         </div>

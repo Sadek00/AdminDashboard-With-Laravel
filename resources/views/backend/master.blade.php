@@ -249,6 +249,20 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
+            <span>Products</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{url('add-products')}}"><i class="fa fa-circle-o"></i> Add Product</a></li>
+            <li><a href="{{url('view-products')}}"><i class="fa fa-circle-o"></i> View Products</a></li>
+            <li><a href="{{url('trashed-products')}}"><i class="fa fa-circle-o"></i> Trashed</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
             <span>Layout Options</span>
             <span class="pull-right-container">
               <span class="label label-primary pull-right">4</span>

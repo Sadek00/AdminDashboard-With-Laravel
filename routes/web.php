@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubcategoryController;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +58,10 @@ Route::post('all-delete-subcategory', [SubcategoryController::class,'AllDeleteSu
 Route::get('trashed-subcategory', [SubcategoryController::class,'TrashedSubcategory'])->name('TrashedSubcategory');
 Route::get('restore-subcategory/{iq}', [SubcategoryController::class,'RestoreSubcategory'])->name('RestoreSubcategory');
 Route::get('permanent-delete-subcategory/{iq}', [SubcategoryController::class,'PermanentDeleteSubcategory'])->name('PermanentDeleteSubcategory');
-
+/**
+ * All Products route here.
+ */
+Route::get('view-products', [ProductsController::class,'ProductsView'])->name('ProductsView');  
 
 
 
