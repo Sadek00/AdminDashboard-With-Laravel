@@ -24,12 +24,12 @@
           <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start --> 
-            <form role="form" method="post" action="{{url('post-subcategory')}}">
+            <form role="form" method="post" action="{{url('post-products')}}" enctype="multipart/formdata">
               @csrf
               <div class="box-body">
                 <div class="form-group">
-                  <label for="category_name">Category Name</label>
-                  <input type="text" class="form-control" id="category_name" name="subcategory_name" placeholder="Enter Product Name" value="{{ old('category_name') }}">
+                  <label for="title">Product Name</label>
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Enter Product Name" value="{{ old('title') }}">
                   <label for="slug">Slug</label>
                   <input type="text" class="form-control" id="slug" name="slug" placeholder="Enter slug" value="{{ old('slug') }}"> 
                   <label for="category_id">Category</label>
@@ -39,6 +39,12 @@
                       <option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
                       @endforeach
                     </select>                 
+                  <label for="thumbnail">Thumbnail</label>
+                  <input type="file" class="form-control" id="thumbnail" name="thumbnail" placeholder="Enter Thumbnail">
+                  <label for="title">Summary</label>
+                  <textarea class="form-control" id="summary" name="summary" value="{{ old('summary') }}"></textarea>
+                  <label for="title">Description</label>
+                  <textarea class="form-control" id="description" name="description" value="{{ old('description') }}"></textarea>
 
                   @if ($errors->any())
                       <div class="alert alert-danger">
@@ -76,7 +82,7 @@
 @endsection
 @section('toaster')
  <script type="text/javascript">
-  $('#category_name').keyup(function() {
+  $('#title').keyup(function() {
     $('#slug').val($(this).val().toLowerCase().split(',').join('').replace(/\s/g,"-"));
   });
   </script>

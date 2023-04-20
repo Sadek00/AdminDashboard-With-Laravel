@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 use Str;
 
 
@@ -17,6 +18,10 @@ class ProductsController extends Controller
 
     public function AddProducts()
     {
-        return view('backend.product.product_add');
+        return view('backend.product.product_add',['categories'=> Category::OrderBy('category_name','asc')->get()]);
+    }
+    public function PostProducts(Request $value)
+    {
+        return $value->all();
     }
 }

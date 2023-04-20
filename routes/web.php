@@ -33,6 +33,7 @@ Route::get('/', function () {
 // });
 
 Route::get('dashboard', [DashboardController::class,'dashboard'])->name('dashboard');
+
 /**
  * All Category Route Here.
  */
@@ -45,6 +46,7 @@ Route::post('update-category', [CategoryController::class,'updatecategory'])->na
 Route::get('trashed-category', [CategoryController::class,'trashedcategory'])->name('trashedcategory');
 Route::get('restore-category/{id}', [CategoryController::class,'RestoreCategory'])->name('RestoreCategory');
 Route::get('permanent-delete-category/{id}', [CategoryController::class,'PermanentdeleteCategory'])->name('PermanentdeleteCategory');
+
 /**
  * All Subcategory route here.
  */
@@ -58,10 +60,13 @@ Route::post('all-delete-subcategory', [SubcategoryController::class,'AllDeleteSu
 Route::get('trashed-subcategory', [SubcategoryController::class,'TrashedSubcategory'])->name('TrashedSubcategory');
 Route::get('restore-subcategory/{iq}', [SubcategoryController::class,'RestoreSubcategory'])->name('RestoreSubcategory');
 Route::get('permanent-delete-subcategory/{iq}', [SubcategoryController::class,'PermanentDeleteSubcategory'])->name('PermanentDeleteSubcategory');
+
 /**
  * All Products route here.
  */
 Route::get('view-products', [ProductsController::class,'ProductsView'])->name('ProductsView');  
+Route::get('add-products', [ProductsController::class,'AddProducts'])->name('AddProducts');  
+Route::post('post-products', [ProductsController::class,'PostProducts'])->name('PostProducts');  
 
 
 
