@@ -24,7 +24,7 @@
           <div class="box box-primary">
             <!-- /.box-header -->
             <!-- form start --> 
-            <form role="form" method="post" action="{{url('post-products')}}" enctype="multipart/formdata">
+            <form role="form" method="post" action="{{url('post-products')}}" enctype="multipart/form-data">
               @csrf
               <div class="box-body">
                 <div class="form-group">
@@ -40,7 +40,7 @@
                       @endforeach
                     </select>                 
                   <label for="thumbnail">Thumbnail</label>
-                  <input type="file" class="form-control" id="thumbnail" name="thumbnail" placeholder="Enter Thumbnail">
+                  <input type="file" class="form-control" id="thumbnail" name="thumbnail">
                   <label for="title">Summary</label>
                   <textarea class="form-control" id="summary" name="summary" value="{{ old('summary') }}"></textarea>
                   <label for="title">Description</label>
