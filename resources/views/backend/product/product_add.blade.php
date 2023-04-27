@@ -38,7 +38,11 @@
                       @foreach($categories as $cat)
                       <option value="{{ $cat->id }}">{{ $cat->category_name }}</option>
                       @endforeach
-                    </select>                 
+                    </select>                         
+                  <label for="subcategory_id">Sub Category</label>
+                  <select name="subcategory_id" id="subcategory_id" class="form-control">
+                    <option>Select one</option> 
+                  </select>                 
                   <label for="thumbnail">Thumbnail</label>
                   <input type="file" class="form-control" id="thumbnail" name="thumbnail">
                   <label for="title">Summary</label>
@@ -84,6 +88,10 @@
  <script type="text/javascript">
   $('#title').keyup(function() {
     $('#slug').val($(this).val().toLowerCase().split(',').join('').replace(/\s/g,"-"));
+  });
+
+  $('#category_id').change(function(){
+    alert('ok')
   });
   </script>
   @endsection

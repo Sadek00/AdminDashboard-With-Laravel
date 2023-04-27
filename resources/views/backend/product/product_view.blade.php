@@ -42,13 +42,13 @@ use App\Models\Product;
                   <td><input type="checkbox" name="delete[]" value="{{ $product->id }}"></td>
                   {{-- <td>{{ $cat->id }}</td> --}}
                   <td>{{ $products->firstItem() + $key }}</td>
-                  <td>{{ $product->subcategory_name }}</td>
+                  <td>{{ $product->title }}</td>
                   <td>{{ $product->category->category_name}}</td>
                   <td>{{ $product->slug }}</td>
                   <td>{{ $product->created_at->Format('d-M-Y h:i:s a') }} ({{ $product->created_at->diffForHumans() }})</td>
                   <td class="text-center">
-                    <a class="btn btn-success" href="{{ url('edit-subcategory')}}/{{ $cat->id }}">Edit</a>
-                    <a class="btn btn-danger" href="{{ url('delete-subcategory') }}/{{ $cat->id }}">Delete</a>
+                    <a class="btn btn-success" href="{{ url('edit-subcategory')}}/{{ $product->id }}">Edit</a>
+                    <a class="btn btn-danger" href="{{ url('delete-subcategory') }}/{{ $product->id }}">Delete</a>
                   </td>
                 </tr>
                 @empty
